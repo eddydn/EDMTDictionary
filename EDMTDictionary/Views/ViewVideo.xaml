@@ -1,0 +1,57 @@
+﻿<Page
+    x:Class="EDMTDictionary.Views.ViewVideo"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:EDMTDictionary.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="#F7F7F7">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="10*"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0" Background="#343339">
+                <StackPanel Orientation="Horizontal" Margin="14 0 0 0">
+                    <TextBlock Text="EDMT" Foreground="#53BCAD"
+                               VerticalAlignment="Center" 
+                               FontWeight="Bold"
+                               FontSize="24"/>
+                    <TextBlock Text=" DICTIONARY" Foreground="#FFFFFF"
+                               VerticalAlignment="Center" 
+                               FontWeight="Bold"
+                               FontSize="24"/>
+                </StackPanel>
+            </Grid>
+            <Grid Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0" Margin="5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="120"/>
+                    </Grid.ColumnDefinitions>
+                    <Slider Grid.Column="0" x:Name="Position" Foreground="#393939" Minimum="0"/>
+                    <Slider Grid.Column="1" x:Name="Volume" Minimum="0" Value="0.5" ValueChanged="Volume_ValueChanged"
+                            Foreground="#393939"/>
+                </Grid>
+                <MediaElement Grid.Row="1" Name="Display" AutoPlay="True"
+                              MediaOpened="Display_MediaOpened"
+                              MediaEnded="Display_MediaEnded"
+                              CurrentStateChanged="Display_CurrentStateChanged"/>
+            </Grid>
+        </Grid>
+
+    </Grid>
+    <Page.BottomAppBar>
+        <CommandBar x:Name="BottomAppBar" Background="#4DA398">
+            <AppBarButton Name="btnPlay" Icon="Play" Label="Play" Foreground="White" Click="btnPlay_Click"/>
+            <AppBarButton Name="btnStop" Icon="Stop" Label="Stop" Foreground="White" Click="btnStop_Click"/>
+
+        </CommandBar>
+    </Page.BottomAppBar>
+</Page>

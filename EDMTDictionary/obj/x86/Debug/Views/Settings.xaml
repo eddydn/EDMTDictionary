@@ -1,0 +1,88 @@
+﻿<Page
+    x:Class="EDMTDictionary.Views.Settings"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:EDMTDictionary.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="#F7F7F7">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="10*"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0" Background="#343339">
+                <StackPanel Orientation="Horizontal" Margin="14 0 0 0">
+                    <TextBlock Text="EDMT" Foreground="#53BCAD"
+                               VerticalAlignment="Center" 
+                               FontWeight="Bold"
+                               FontSize="24"/>
+                    <TextBlock Text=" DICTIONARY" Foreground="#FFFFFF"
+                               VerticalAlignment="Center" 
+                               FontWeight="Bold"
+                               FontSize="24"/>
+                </StackPanel>
+            </Grid>
+            <Grid Grid.Row="1">
+                <Pivot x:ConnectionId='1' x:Name="pvMain">
+                    <PivotItem Header="General">
+                        <StackPanel x:ConnectionId='8' x:Name="stackMain" Orientation="Vertical">
+                            <StackPanel Orientation="Vertical">
+                                <TextBlock Text="Translate to" Foreground="#393939" FontSize="24"/>
+                                <ComboBox x:ConnectionId='15' x:Name="cbLanguageTo" Width="{Binding ActualWidth,ElementName=stackMain}"></ComboBox>
+                                
+                            </StackPanel>
+                            <StackPanel Orientation="Vertical">
+                                <TextBlock x:ConnectionId='13' x:Name="txtWord" Text="Hello" Foreground="#393939" FontSize="24"/>
+                                <Slider x:ConnectionId='14' x:Name="wordSlider" Foreground="#393939"
+                                        Maximum="36" Minimum="12" LargeChange="4" Value="28" StepFrequency="4" SmallChange="4"                                       />
+                            </StackPanel>
+                            <StackPanel Orientation="Vertical">
+                                <TextBlock x:ConnectionId='11' x:Name="txtType" Text="(interj. &amp; n)" Foreground="#393939" FontSize="20"/>
+                                <Slider x:ConnectionId='12' x:Name="typeSlider" Foreground="#393939"
+                                        Maximum="36" Minimum="12" LargeChange="4" Value="16" StepFrequency="4" SmallChange="4"                                       />
+                            </StackPanel>
+                            <StackPanel Orientation="Vertical">
+                                <TextBlock x:ConnectionId='9' x:Name="txtDescription" Text="See Hallo" Foreground="#393939" FontSize="20"/>
+                                <Slider x:ConnectionId='10' x:Name="desSlider" Foreground="#393939"
+                                        Maximum="36" Minimum="12" LargeChange="4" Value="16" StepFrequency="4" SmallChange="4"                                      />
+                            </StackPanel>
+                        </StackPanel>
+                    </PivotItem>
+                    <PivotItem Header="Speech">
+                        <StackPanel Orientation="Vertical">
+                            <StackPanel Orientation="Vertical">
+                                <TextBlock Text="Voice Gender" Foreground="#393939" FontSize="24"/>
+                                <StackPanel Orientation="Horizontal">
+                                    <RadioButton x:ConnectionId='6' x:Name="Male" Content="Male" FontSize="20" GroupName="Gender"                       />
+                                    <RadioButton x:ConnectionId='7' x:Name="FeMale" Content="Female" FontSize="20" GroupName="Gender"                         />
+
+                                </StackPanel>
+                            </StackPanel>
+                            <StackPanel Orientation="Vertical">
+                                <TextBlock Text="Speech Pitch" Foreground="#393939" FontSize="24"/>
+                                <Slider x:ConnectionId='5' x:Name="pitchSlider" Foreground="#393939" Maximum="5" Minimum="1" LargeChange="1" Value="3"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Vertical">
+                                <TextBlock Text="Speech Range" Foreground="#393939" FontSize="24"/>
+                                <Slider x:ConnectionId='4' x:Name="RangeSlider" Foreground="#393939" Maximum="5" Minimum="1" LargeChange="1" Value="3"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Vertical">
+                                <TextBlock Text="Speech Rate" Foreground="#393939" FontSize="24"/>
+                                <Slider x:ConnectionId='3' x:Name="rateSlider" Foreground="#393939" Maximum="5" Minimum="1" LargeChange="1" Value="3"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Vertical">
+                                <TextBlock Text="Speech Volume" Foreground="#393939" FontSize="24"/>
+                                <Slider x:ConnectionId='2' x:Name="volumeSlider" Foreground="#393939" Maximum="6" Minimum="1" LargeChange="1" Value="3"/>
+                            </StackPanel>
+                        </StackPanel>
+                       
+                    </PivotItem>
+                </Pivot>
+            </Grid>
+        </Grid>
+    </Grid>
+</Page>
+

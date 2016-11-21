@@ -1,0 +1,260 @@
+﻿<Page
+    x:Class="EDMTDictionary.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:EDMTDictionary"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="#F7F7F7">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="10*"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0" Background="#343339">
+                <StackPanel Orientation="Horizontal" Margin="14 0 0 0">
+                    <TextBlock Text="EDMT" Foreground="#53BCAD"
+                               VerticalAlignment="Center" 
+                               FontWeight="Bold"
+                               FontSize="24"/>
+                    <TextBlock Text=" DICTIONARY" Foreground="#FFFFFF"
+                               VerticalAlignment="Center" 
+                               FontWeight="Bold"
+                               FontSize="24"/>
+                </StackPanel>
+            </Grid>
+            <Grid Grid.Row="1">
+                <Pivot x:ConnectionId='1' x:Name="MainPivot"                                              >
+                    <PivotItem Header="AlphaBetic">
+                        <Grid>
+                            <ListView x:ConnectionId='11' x:Name="lstGroup" Margin="8"
+                                                                    
+                                      ScrollViewer.VerticalScrollBarVisibility="Hidden"
+                                      ScrollViewer.HorizontalScrollBarVisibility="Hidden"
+                                      IsItemClickEnabled="True">
+                                <ListView.ItemContainerStyle>
+                                    <Style TargetType="ListViewItem">
+                                        <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                                        
+                                    </Style>
+                                </ListView.ItemContainerStyle>
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <Border BorderBrush="#F0EDE4" BorderThickness="0 0 0 1">
+                                            <Grid Margin="8" Width="40" Height="40" HorizontalAlignment="Left" VerticalAlignment="Top">
+                                                <Ellipse Fill="#393939"/>
+                                                <TextBlock Text="{Binding}"
+                                                           FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center"
+                                                           Foreground="White" FontWeight="Bold"/>
+                                            </Grid>
+                                        </Border>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                            <ListView x:ConnectionId='12' x:Name="lstAlphaBetic" Margin="8"
+                                      Visibility="Collapsed"
+                                                                         
+                                      IsItemClickEnabled="True"
+                                                                                       
+                                      ScrollViewer.VerticalScrollBarVisibility="Hidden"
+                                      ScrollViewer.HorizontalScrollBarVisibility="Hidden">
+                                <ListView.ItemContainerStyle>
+                                    <Style TargetType="ListViewItem">
+                                        <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                                    </Style>
+                                </ListView.ItemContainerStyle>
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <Border BorderBrush="#F0EDE4" BorderThickness="0 0 0 1">
+                                            <Grid Margin="8">
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="auto"/>
+                                                    <RowDefinition Height="*"/>
+                                                </Grid.RowDefinitions>
+                                                <TextBlock Grid.Row="0" Text="{Binding Word}" FontWeight="Bold"
+                                                           TextWrapping="Wrap" Foreground="#494949" FontSize="16"/>
+                                            </Grid>
+                                        </Border>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                                
+                            </ListView>
+                        </Grid>
+                    </PivotItem>
+                    <PivotItem Header="Search">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Grid Grid.Row="0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="auto"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock x:ConnectionId='9' x:Name="btnSpeechRecognition" Grid.Column="1"
+                                           Foreground="#494949" VerticalAlignment="Center"
+                                           HorizontalAlignment="Center"
+                                           FontFamily="Segoe UI Symbol"
+                                           FontSize="30"                                     >&#xE192;</TextBlock>
+                                <TextBox x:ConnectionId='10' x:Name="txtSearch" Grid.Column="0" 
+                                         PlaceholderText="Search..." VerticalAlignment="Center"                                    />
+                            </Grid>
+                            <Grid Grid.Row="1">
+                                <ListView x:ConnectionId='8' x:Name="lstSearch" Margin="8"
+                                                                          ScrollViewer.VerticalScrollBarVisibility="Hidden"
+                                          ScrollViewer.HorizontalScrollBarVisibility="Hidden"
+                                          IsItemClickEnabled="True">
+                                    <ListView.ItemContainerStyle>
+                                        <Style TargetType="ListViewItem">
+                                            <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                                        </Style>
+                                    </ListView.ItemContainerStyle>
+                                    <ListView.ItemTemplate>
+                                        <DataTemplate>
+                                            <Border BorderBrush="#F0EDE4" BorderThickness="0 0 0 1">
+                                                <Grid Margin="8">
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition Height="auto"/>
+                                                        <RowDefinition Height="*"/>
+                                                    </Grid.RowDefinitions>
+                                                    <TextBlock Grid.Row="0" Text="{Binding Word}" FontWeight="Bold"
+                                                               TextWrapping="Wrap" FontSize="16" Foreground="#494949"/>
+                                                </Grid>
+                                            </Border>
+                                        </DataTemplate>
+                                    </ListView.ItemTemplate>
+                                </ListView>
+                            </Grid>
+                        </Grid>
+                    </PivotItem>
+                    <PivotItem Header="Video">
+                        <ListView x:ConnectionId='7' x:Name="lstVideo" Margin="8"                               
+                                  ScrollViewer.VerticalScrollBarVisibility="Hidden"
+                                  ScrollViewer.HorizontalScrollBarVisibility="Hidden"
+                                  IsItemClickEnabled="True">
+                            <ListView.ItemContainerStyle>
+                                <Style TargetType="ListViewItem">
+                                    <Setter Property="HorizontalAlignment" Value="Stretch"></Setter>
+                                </Style>
+                            </ListView.ItemContainerStyle>
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <Border BorderBrush="#F0EDE4" BorderThickness="0 0 0 1">
+                                        <Grid Margin="0 0 0 8">
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="auto"/>
+                                                    <ColumnDefinition Width="*"/>
+                                                </Grid.ColumnDefinitions>
+                                                <Image Grid.Column="0" Width="70" Height="70"
+                                                       Source="{Binding ImgUrl}" Stretch="UniformToFill"/>
+                                                <Grid Grid.Column="1" Margin="8 0 0 0">
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition Height="auto"/>
+                                                        <RowDefinition Height="auto"/>
+                                                    </Grid.RowDefinitions>
+                                                    <TextBlock Grid.Row="0" Text="{Binding VideoTitle}"
+                                                               FontWeight="Bold" TextWrapping="Wrap"
+                                                               Foreground="#494949" FontSize="16"/>
+                                                    <TextBlock Grid.Row="1" Text="{Binding DateAdded}" FontStyle="Italic"
+                                                               TextWrapping="Wrap" Foreground="#494949" FontSize="12">
+                                                        
+                                                    </TextBlock>
+                                                </Grid>
+                                            </Grid>
+                                        </Grid>
+                                    </Border>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </PivotItem>
+                    <PivotItem Header="Favorites">
+                        <ListView x:ConnectionId='4' x:Name="lstFavorites" Margin="8"
+                                                                    
+                                  IsItemClickEnabled="True"
+                                                                                  
+                                  ScrollViewer.HorizontalScrollBarVisibility="Hidden"
+                                  ScrollViewer.VerticalScrollBarVisibility="Hidden">
+                            <ListView.ItemContainerStyle>
+                                <Style TargetType="ListViewItem">
+                                    <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                                </Style>
+                            </ListView.ItemContainerStyle>
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <Border BorderBrush="#F0EDE4" BorderThickness="0 0 0 1">
+                                        <Grid x:ConnectionId='5' Margin="8"                       >
+                                            <FlyoutBase.AttachedFlyout>
+                                                <MenuFlyout>
+                                                    <MenuFlyoutItem x:ConnectionId='6' x:Name="DeleteButton" Text="Delete"                           />
+                                                </MenuFlyout>
+                                            </FlyoutBase.AttachedFlyout>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="auto"/>
+                                                <RowDefinition Height="*"/>
+                                            </Grid.RowDefinitions>
+                                            <TextBlock Grid.Row="0" Text="{Binding Word}"
+                                                       FontWeight="Bold" TextWrapping="Wrap"
+                                                       Foreground="#494949" FontSize="16"/>
+                                        </Grid>
+                                    </Border>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </PivotItem>
+                    <PivotItem Header="Recents">
+                        <ListView x:ConnectionId='2' x:Name="lstRecents" Margin="8"
+                                                                  
+                                  IsItemClickEnabled="True"
+                                                                                
+                                  ScrollViewer.VerticalScrollBarVisibility="Hidden"
+                                  ScrollViewer.HorizontalScrollBarVisibility="Hidden"
+                                  >
+                            <ListView.ItemContainerStyle>
+                                <Style TargetType="ListViewItem">
+                                    <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                                </Style>
+                            </ListView.ItemContainerStyle>
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <Border BorderBrush="#F0EDE4" BorderThickness="0 0 0 1">
+                                        <Grid Margin="8">
+                                            <FlyoutBase.AttachedFlyout>
+                                                <MenuFlyout>
+                                                    <MenuFlyoutItem x:ConnectionId='3' x:Name="DeleteButton" Text="Delete"                                  />
+                                                </MenuFlyout>
+                                            </FlyoutBase.AttachedFlyout>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="auto"/>
+                                                <RowDefinition Height="*"/>
+                                            </Grid.RowDefinitions>
+                                            <TextBlock Grid.Row="0" Text="{Binding Word}"
+                                                       FontWeight="Bold" TextWrapping="Wrap"
+                                                       Foreground="#494949" FontSize="16"/>
+                                        </Grid>
+                                    </Border>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </PivotItem>
+                </Pivot>
+            </Grid>
+        </Grid>
+    </Grid>
+    <Page.BottomAppBar>
+        <CommandBar x:ConnectionId='13' x:Name="BottomAppBar" Background="#4DA398">
+            <AppBarButton x:ConnectionId='14' Name="btnRemind" Icon="Clock" Label="Reminder" Foreground="White"                        />
+            <AppBarButton x:ConnectionId='15' Name="btnMulti" Icon="List" Label="Multi" Foreground="White"                       />
+            <AppBarButton x:ConnectionId='16' Name="btnSelectAll" Icon="SelectAll" Label="Select All" Foreground="White"                            Visibility="Collapsed"/>
+            <AppBarButton x:ConnectionId='17' Name="btnDelete" Icon="Delete" Label="Delete" Foreground="White"                         Visibility="Collapsed"/>
+            <AppBarButton x:ConnectionId='18' Name="btnCancel" Icon="Cancel" Label="Cancel" Foreground="White"                        />
+            <AppBarSeparator/>
+            <AppBarButton x:ConnectionId='19' Name="btnSetting" Icon="Setting" Label="Settings" Foreground="White"                         />
+
+        </CommandBar>
+    </Page.BottomAppBar>
+</Page>
+

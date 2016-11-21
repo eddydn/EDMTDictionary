@@ -1,0 +1,2 @@
+c:\users\reale\documents\visual studio 2015\Projects\EDMTDictionary\BackgroundTask\BackgroundTask.csproj;x86
+c:\users\reale\documents\visual studio 2015\Projects\EDMTDictionary\EDMTDictionary\EDMTDictionary.csproj;x86
